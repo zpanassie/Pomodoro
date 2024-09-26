@@ -10,9 +10,11 @@ const startBtn = document.getElementById('startBtn');
 const workBtn = document.getElementById('workBtn');
 const breakBtn = document.getElementById('breakBtn');
 const progressBar = document.getElementById('progressBar');
+const settingsForm = document.getElementById('settingsForm');
 const play = document.getElementById('play');
 const settingsBtn = document.getElementById('settingsBtn');
-
+const modal = document.getElementById('modal');
+const cancel = document.getElementById('cancel');
 
 settingsForm.addEventListener('submit', (event) => {
     event.preventDefault();  
@@ -25,7 +27,6 @@ settingsForm.addEventListener('submit', (event) => {
 
     modal.style.display = "none";
 
-    saveSettings();
     clearInterval(timerInterval);
     updateTimeDisplay();
     updateProgressBar();
@@ -37,11 +38,13 @@ function updateTimeDisplay() {
     timeDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
+
 function updateProgressBar() {
     const totalDuration = isWorkTime ? workTime : breakTime;
     const progress = ((totalDuration - timeRemaining) / totalDuration) * 565;
     progressBar.style.strokeDashoffset = 565 - progress;
 }
+
 
 function startTimer() {
     isRunning = true;
@@ -120,6 +123,14 @@ breakBtn.addEventListener('click', () => {
         document.body.classList.remove('work-mode');
         document.body.classList.add('break-mode');
     }
+});
+
+settingsBtn.addEventListener('click', () => {
+    modal.style.display = "block";
+});
+
+cancel.addEventListener('click', () => {
+    modal.style.display = "none";
 });
 
 updateTimeDisplay();
