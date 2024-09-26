@@ -9,6 +9,7 @@ const timeDisplay = document.getElementById('timeDisplay');
 const startBtn = document.getElementById('startBtn');
 const workBtn = document.getElementById('workBtn');
 const breakBtn = document.getElementById('breakBtn');
+const progressBar = document.getElementById('progressBar');
 const play = document.getElementById('play');
 const settingsBtn = document.getElementById('settingsBtn');
 
@@ -18,6 +19,12 @@ function updateTimeDisplay() {
     timeDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
+function updateProgressBar() {
+    const totalDuration = isWorkTime ? workTime : breakTime;
+    const progress = ((totalDuration - timeRemaining) / totalDuration) * 565;
+    progressBar.style.strokeDashoffset = 565 - progress;
+}
+
 function startTimer() {
     isRunning = true;
     play.textContent = 'replay';
@@ -25,7 +32,7 @@ function startTimer() {
     timerInterval = setInterval(() => {
         timeRemaining--;
         updateTimeDisplay();
-        
+        updateProgressBar();
 
         if (timeRemaining <= 0) {
             clearInterval(timerInterval);
@@ -39,7 +46,7 @@ function startTimer() {
             } else {
                 timeRemaining = workTime;
                 isWorkTime = true;
-                document.body.classList.remove('break-mode');
+              document.body.classList.remove('break-mode');
                 document.body.classList.add('work-mode');
                 breakBtn.classList.remove('active');
                 workBtn.classList.add('active');
@@ -48,6 +55,7 @@ function startTimer() {
         }
     }, 1000);
 }
+
 
 function resetTimer() {
     clearInterval(timerInterval);
@@ -59,6 +67,7 @@ function resetTimer() {
     startBtn.classList.remove('restart');
 }
 
+
 startBtn.addEventListener('click', () => {
     if (isRunning) {
         resetTimer();
@@ -66,6 +75,7 @@ startBtn.addEventListener('click', () => {
         startTimer();
     }
 });
+
 
 workBtn.addEventListener('click', () => {
     if (!isRunning) {
@@ -95,3 +105,4 @@ breakBtn.addEventListener('click', () => {
 });
 
 updateTimeDisplay();
+updateProgressBar();

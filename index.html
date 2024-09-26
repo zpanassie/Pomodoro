@@ -11,25 +11,31 @@
 <body>
   <main>
     <div class="container">
-        <h1>TIMER POMODORO</h1>
-        <div class="controls">
-            <button id="workBtn" class="active">Travail</button>
-            <button id="breakBtn">Pause</button>
-        </div>
-        <div class="timer-container">
-                <div id="timeDisplay">25:00</div>
-        </div>
-        <button id="startBtn" class="start"></button>
-          <span id="play" class="material-symbols-outlined">
-          play_arrow
-          </span>
-          </button>
-        <button id="settingsBtn" class="settings">
-          <span class="material-symbols-outlined">
-          settings
-          </span>
+      <h1>TIMER POMODORO</h1>
+      <div class="controls">
+          <button id="workBtn" class="active">Travail</button>
+          <button id="breakBtn">Pause</button>
+      </div>
+      <div class="timer-container">
+          <div id="progressCircle">
+              <svg>
+                  <circle cx="100" cy="100" r="90"></circle>
+                  <circle cx="100" cy="100" r="90" id="progressBar"></circle>
+              </svg>
+              <div id="timeDisplay">25:00</div>
+          </div>
+      </div>
+      <button id="startBtn" class="start">
+        <span id="play" class="material-symbols-outlined">
+        play_arrow
+        </span>
         </button>
-    </div>
+      <button id="settingsBtn" class="settings">
+        <span class="material-symbols-outlined">
+        settings
+        </span>
+      </button>
+  </div>
   </main>
   <footer>
     © PANASSIE Zacharie
