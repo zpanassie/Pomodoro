@@ -16,7 +16,9 @@ const settingsBtn = document.getElementById('settingsBtn');
 const modal = document.getElementById('modal');
 const cancel = document.getElementById('cancel');
 
-loadSettings();
+if(!(window.localStorage.getItem("work") == null)){
+    loadSettings();
+}
 
 settingsForm.addEventListener('submit', (event) => {
     event.preventDefault();  
@@ -81,7 +83,7 @@ function startTimer() {
             } else {
                 timeRemaining = workTime;
                 isWorkTime = true;
-              document.body.classList.remove('break-mode');
+                document.body.classList.remove('break-mode');
                 document.body.classList.add('work-mode');
                 breakBtn.classList.remove('active');
                 workBtn.classList.add('active');
