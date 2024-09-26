@@ -16,6 +16,8 @@ const settingsBtn = document.getElementById('settingsBtn');
 const modal = document.getElementById('modal');
 const cancel = document.getElementById('cancel');
 
+loadSettings();
+
 settingsForm.addEventListener('submit', (event) => {
     event.preventDefault();  
     const newWorkDuration = parseInt(document.getElementById('workDuration').value);
@@ -27,10 +29,22 @@ settingsForm.addEventListener('submit', (event) => {
 
     modal.style.display = "none";
 
+    saveSettings();
     clearInterval(timerInterval);
     updateTimeDisplay();
     updateProgressBar();
 });
+
+function saveSettings() {
+    window.localStorage.setItem("work",workTime);
+    window.localStorage.setItem("break",breakTime);
+}
+
+function loadSettings() {
+    workTime = window.localStorage.getItem("work");
+    breakTime = window.localStorage.getItem("break");
+    timeRemaining = workTime;
+}
 
 function updateTimeDisplay() {
     const minutes = Math.floor(timeRemaining / 60);
