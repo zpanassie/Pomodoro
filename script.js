@@ -13,6 +13,24 @@ const progressBar = document.getElementById('progressBar');
 const play = document.getElementById('play');
 const settingsBtn = document.getElementById('settingsBtn');
 
+
+settingsForm.addEventListener('submit', (event) => {
+    event.preventDefault();  
+    const newWorkDuration = parseInt(document.getElementById('workDuration').value);
+    const newBreakDuration = parseInt(document.getElementById('breakDuration').value);
+
+    workTime = newWorkDuration * 60;
+    breakTime = newBreakDuration * 60;
+    timeRemaining = document.body.classList.contains('work-mode') ? workTime : breakTime; 
+
+    modal.style.display = "none";
+
+    saveSettings();
+    clearInterval(timerInterval);
+    updateTimeDisplay();
+    updateProgressBar();
+});
+
 function updateTimeDisplay() {
     const minutes = Math.floor(timeRemaining / 60);
     const seconds = timeRemaining % 60;
