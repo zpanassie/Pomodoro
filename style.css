@@ -13,9 +13,26 @@ body {
     background-color: #d32f2f;
 }
 
+body.work-mode {
+    background-color: #d32f2f;
+}
+
+body.break-mode {
+    background-color: #388e3c;
+}
+
+.container {
+    text-align: center;
+    color: white;
+}
+
 h1 {
     margin-bottom: 20px;
     font-size: 2.5em;
+}
+
+.controls {
+    margin-bottom: 20px;
 }
 
 button {
@@ -37,6 +54,42 @@ button.active {
 button:not(.active) {
     background-color: white;
     color: #ff5722;
+}
+
+.timer-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+}
+
+#startBtn {
+    background-color: white;
+    color: #ff5722;
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#startBtn.start {
+    background-color: white;
+}
+
+#startBtn.restart {
+    background-color: #ff5722;
+    color: white;
+}
+
+#settingsBtn {
+    background-color: white;
+    color: #ff5722;
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 footer{
