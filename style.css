@@ -10,7 +10,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #d32f2f;
 }
 
 body.work-mode {
@@ -48,7 +47,7 @@ h1 {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-  }
+}
 
 form {
     margin-bottom: 20px;
@@ -93,13 +92,13 @@ button {
 }
 
 button.active {
-    background-color: #ff5722;
+    background-color: #5957caee;
     color: white;
 }
 
 button:not(.active) {
     background-color: white;
-    color: #ff5722;
+    color: #5957caee;
 }
 
 .timer-container {
@@ -183,14 +182,14 @@ body.break-mode #progressCircle circle:nth-child(2) {
 }
 
 footer{
-  background-color: black;
-  color: white;
-  position: absolute;
-  text-align: center;
-  padding: 2%;
-  bottom: 0;
-  right: 0;
-  left: 0;
+    background-color: black;
+    color: white;
+    position: absolute;
+    text-align: center;
+    padding: 2%;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 .settingsForm{
